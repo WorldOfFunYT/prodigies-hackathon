@@ -6,14 +6,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      display: flex;
+      height: 100vh;
+      overflow: scroll;
+      align-items: center;
+      justify-content: center;
+    }
+    form {
+      display: flex;
+      background-color: #ffffff;
+      flex-direction: column;
+      padding: 1em;
+      width: fit-content;
+      gap: 1em;
+      align-items: center;
+      box-shadow: 0 4px 4px 0 hsl(0, 0%, 0%, 25%);
+      border-radius: 10px;
+    }
+    .input {
+      position: relative;
+      height: 50px;
+      width: 275px;
+    }
+    .input input {
+      padding-left: 1em;
+      box-sizing: border-box;
+      font-size: 15px;
+      border: none;
+      background-color: #ece7f2;
+      border-radius: 6px;
+    }
+    .input * {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+    }
+    .input label {
+      font-size: 15px;
+      z-index: 1;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      left: 1em;
+      transition: opacity 500ms ease-in-out, left 500ms ease-in-out;
+    }
+    .input input:not(:placeholder-shown) + label {
+      opacity: 0;
+      left: 2em;
+    }
+    button {
+      font-size: 15px;
+      height: 50px;
+      width: 150px;
+      background-color: #6095ff;
+      border: none;
+      border-radius: 6px;
+    }
+    .card {
+      background-color: #f0f0f0;
+      width: fit-content;
+      padding: 1.25em 3em;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25em;
+      align-items: center;
+      border-radius: 15px;
+    }
+  </style>
   <body>
-    <form action="" method="post">
-      {% csrf_token %}
-      <label for="username">Username</label>
-      <input type="text" name="username" id="username" />
-      <label for="password">Password</label>
-      <input type="password" name="password" id="password" />
-      <button type="submit">Login</button>
-    </form>
+    <div class="card">
+      <h1>PRODIGIES.COM</h1>
+      <p>Data for Effective Marketing</p>
+      <form action="" method="post">
+        <h2 class="tite-small">Login</h2>
+        {% csrf_token %}
+        <div class="input">
+          <input placeholder=" " type="text" name="username" id="username" />
+          <label for="username">Username</label>
+        </div>
+        <div class="input">
+          <input
+            placeholder=" "
+            type="password"
+            name="password"
+            id="password"
+          />
+          <label for="password">Password</label>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+      <p>
+        Don't have an account? <a href="{% url 'register' %}">Sign up here</a>
+      </p>
+    </div>
   </body>
+  <script></script>
 </html>
