@@ -7,7 +7,7 @@ import random
 
 def getClient():
     data = pd.read_csv(
-        r'.\\ReportingBehaviour.csv')
+        'ReportingBehaviour.csv')
 
     Source = []
     SourceScore = []
@@ -25,7 +25,7 @@ def getClient():
     UserTypeScore = [0.70, 1.47]
 
     BrowserData = pd.read_csv(
-        r'.\\browser_data.csv')
+        'browser_data.csv')
     # BrowserData = pd.read_csv(
     #     r'C:\\Users\\Student\\Desktop\\hackhaton\\home.html\\browser_data.csv')
 
